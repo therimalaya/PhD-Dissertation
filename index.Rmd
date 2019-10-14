@@ -1,0 +1,208 @@
+---
+title: Exploration of Multi-Response Multivariate Methods
+author: "Raju Rimal"
+date: "04 October, 2019"
+output:
+  xaringan::moon_reader:
+    css: ['_style/default.css', '_style/fonts.css', '_style/custom.css']
+    self_content: false
+    includes:
+      in_header: "header.html"
+      after_body: "footer.html"
+    lib_dir: 'libs'
+    chakra: 'libs/remark-latest.min.js'
+    mathjax: null
+    seal: false
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%|%total%"
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+## Knitr Options
+options(htmltools.dir.version = FALSE, digits = 3, signif = 999)
+## Chunk Options
+knitr::opts_chunk$set(
+  echo = FALSE, comment = NULL, eval = TRUE,
+  dev = 'svg', out.width='100%', fig.retina=2,
+  fig.align = 'center', warning = FALSE,
+  message = FALSE)
+## Hightlight part of code hook
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+```
+
+```{r reference-setup, include=FALSE, cache=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           # cite.style = "numeric",
+           style = "markdown",
+           hyperlink = FALSE,
+           dashed = FALSE)
+refs <- ReadBib("./references.bib", check = FALSE)
+```
+
+
+class: title, center, middle, inverse
+
+```{r, out.width='60%'}
+knitr::include_graphics("_images/animated/NMBUwhite.svg")
+```
+
+---
+class: title, left, middle, inverse
+
+.flex-column[
+.title-text[
+# Exploration of Multi-Response Multivariate Methods
+## Raju Rimal
+### `r format(as.Date("2019-10-04"), "%d %B, %Y")`
+]
+
+.title-footer[
+.pull-left[
+```{r, out.width='75%', fig.align='left'}
+knitr::include_graphics("_images/NMBUwhite.svg")
+```
+].pull-right[
+#### Supervisors: Solve Sæbø and Trygve Almøy
+[https://therimalaya.github.io/Dissertation](https://therimalaya.github.io/Dissertation)
+]
+]
+]
+
+
+---
+class: title, middle, left, inverse
+
+# Linear Regression Model
+## Relevant Space and Relevant Components
+
+---
+class: top, left
+
+# Linear Regression Model
+.pull-left[
+
+- Regression coefficients $\beta$ controls the relationship between the predictor $(\mathbf{x})$ and response $(\mathbf{y})$
+- Not all variation in the $\mathbf{y}$ is explained by $\mathbf{x}$
+- The error captures the rest that is left by the model
+- Different prediction and estimation methods uses different model to figure out these $\beta$ close to the truth in order to achieve better prediction and stable estimation
+
+
+].pull-right.with-figure[
+
+```{r, out.extra='style="padding-bottom: 12px;"'}
+knitr::include_graphics("_images/animated/relevant-space.svg")
+```
+
+.caption[ Linear Regression between `\\(\mathbf{x}\\)` and `\\(\mathbf{y}\\)` ]
+
+$$\mathbf{y} = \mu_y + \beta^t(\mathbf{x} - \mu_x) + \varepsilon, \; \; \varepsilon \sim \mathsf{N}(0, \sigma^2)$$
+
+The regression coefficient is the covariance between $\mathbf{x}$ and $\mathbf{y}$ scaled by the variance of $\mathbf{x}$, i.e.
+$$\beta=\Sigma_{xx}^{-1}\sigma_{xy}$$
+
+]
+
+---
+class: top, left
+# Relevant Space and Relevant Components
+
+.pull-left[
+
+- Only a subspace (relevant space) of predictor space are relevant for explaining variation in $\mathbf{y}$ 
+- A subset of latent components that spans this space are the _relevant components_
+- Methods like principal component regression (PCR) and partial least squares (PLS) are based on this concept
+- Leveraging the idea, `r Citet(refs, 'saebo2015simrel')` developed a simulation tool called `simrel`
+- In the second paper, using the tool, we performed a simulation comparison on various methods including BayesPLS, PLS and Envelopes
+
+].pull-right.with-figure[
+
+```{r, child="_images/animated/relevant-space.svg"}
+```
+
+.caption[ Linear Regression between `\\(\mathbf{x}\\)` and `\\(\mathbf{y}\\)` with relevant spaces within them. ]
+
+]
+
+---
+class: top, left
+
+# Simulation using from __simrel__ and a comparison
+
+.pull-left[
+## Simulation
+
+1. Fix simulation parameters
+2. Create latent covariance matrix
+3. Create a Rotation matrix
+4. Create covariance of data from 2. and 3.
+5. Sample data from Multivariate Normal using 4.
+
+
+].pull-right[
+
+]
+
+---
+class: top, acknowledgment, title
+
+# Acknowledgment
+
+.pull-left[
+## Supervisors
+.card[ <!-- Solve -->
+```{r, out.width='100%'}
+knitr::include_graphics('_images/solve.jpg')
+```
+.card-text[
+## Solve Sæbø
+### NMBU
+]
+].card[ <!-- Trygve -->
+```{r, out.width='100%'}
+knitr::include_graphics('_images/trygve.jpg')
+```
+.card-text[
+## Trygve Almøy
+### NMBU
+]
+]
+].pull-right[
+.group-photos[
+
+]
+.biostat-logo[
+![](_images/BioStatistics.svg)
+]
+]
+
+---
+class: references, top, left
+
+# References
+
+```{r refs, echo=FALSE, results="asis"}
+PrintBibliography(refs)
+```
+
+---
+class: title
+
+background-image: url(_images/animated/Thank-You.svg)
+background-color: #009a81
+background-size: cover
+background-position: center
+background-repeat: no-repeat
+

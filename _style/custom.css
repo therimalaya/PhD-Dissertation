@@ -1,0 +1,353 @@
+/* Animation Keyframes */
+@keyframes scale-up {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* latin */
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 400;
+  src: url('_fonts/YanoneKaffeesatz/YanoneKaffeesatz-Regular.ttf');
+}
+
+/* latin */
+@font-face {
+  font-family: 'Droid Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url('_fonts/DroidSerif/DroidSerif-Regular.ttf');
+}
+
+/* latin */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url('_fonts/SourceCodePro/SourceCodePro-Regular.ttf');
+}
+
+/*------------- General Color and Fonts --------------*/
+body {
+  font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif; 
+  line-height: 1.8em;
+  font-size: 110%;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+  color: #009a81;
+}
+.remark-code, .remark-inline-code {
+  font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
+}
+.inverse{
+    background-color: #009a81;
+}
+
+/*------------ Layout and Structure ------------------*/
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------- Typography -------------------*/
+ul {
+  padding-left: 10px;
+  padding-top: 20px;
+}
+ul li {
+    padding-bottom: 12px;
+    list-style: none;
+}
+
+ul li:before {
+    content: "» ";
+    margin-left: -16px;
+}
+
+/*------------ Slide Specific Formatting -------------*/
+/* Slide Number */
+.title .remark-slide-number {
+  display: none;
+}
+
+.remark-slide-number {
+  font-family: "Source Code Pro", "monospace";
+  font-size: 10pt;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  color: "whitesmoke";
+  opacity: 0.5;
+}
+
+/* Title Slides */
+.title h1, .title h2 {
+  margin: 2rem 0;
+}
+.title h2{
+  font-size: 175%;
+}
+.title .flex-column{
+  height: 100%;
+  justify-content: space-between;
+}
+.title .title-text {
+    display: grid;
+    grid-auto-flow: row;
+    height: 50%;
+    align-content: flex-end;
+}
+.title .title-text * {
+  margin: 0.5rem 0;
+}
+.title .title-footer * {
+  margin: 0;
+}
+.title .title-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-top: 1px solid whitesmoke;
+}
+.title .title-footer h4 {
+  font-size: 120%;
+  padding-bottom: 10px;
+  color: whitesmoke;
+  font-weight: lighter;
+  font-family: 'Yanone Kaffeesatz', "Droid Serif", 'Palatino Linotype';
+}
+.title .title-footer a {
+  font-size: 90%;
+  color: whitesmoke;
+  font-family: 'Source Code Pro', "monospace";
+}
+
+/* Acknowledgment */
+.remark-slide-content.acknowledgment {
+    background: linear-gradient(130deg, rgb(209, 232, 223) 50%, #009a81 50%);
+}
+.acknowledgment .pull-left {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+.acknowledgment .pull-left .card {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 150px 1fr;
+    grid-gap: 10px;
+    margin: 10px 0;
+}
+.acknowledgment .card .card-text h2, .acknowledgment .card .card-text h3 {
+    margin: 0;
+    line-height: 125%;
+}
+
+.acknowledgment .card .card-text h3 {
+    color: #555;
+}
+
+.acknowledgment .card {
+}
+
+.acknowledgment .card p {
+    margin: 0;
+}
+.acknowledgment .pull-right .biostat-logo {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: right;
+}
+.acknowledgment .pull-right .biostat-logo img {
+    width: 50%;
+    padding-right: 20px;
+}
+.acknowledgment .pull-right .group-photos p{
+    display: grid;
+    width: 500px;
+    height: 500px;
+    background: rgba(250, 250, 250, 0.2);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    margin-top: -65px;
+    position: absolute;
+    right: 30px;
+    grid-gap: 5px;
+}
+.acknowledgment .pull-right .group-photos img {
+    width: calc(100% - 3px);
+    border: 1.5px solid whitesmoke;
+}
+.acknowledgment .pull-right .group-photos img:nth-child(1) {
+  grid-column: 5/5;
+}
+.acknowledgment .pull-right .group-photos img:nth-child(2) {
+  grid-column: 4/4;
+}
+.acknowledgment .pull-right .group-photos img:nth-child(4) {
+  grid-column: 3/3;
+}
+.acknowledgment .pull-right .group-photos img:nth-child(6) {
+  grid-column: 2/2;
+}
+.acknowledgment .pull-right .group-photos img:nth-child(8) {
+  grid-column: 1/1;
+}
+
+/* SVG Styles */
+svg#rel-space {
+    transform: translate(0, 4px) scale(0.873);
+    transform-origin: left;
+}
+
+/* Need to Re-work on this --------------
+
+.acknowledgement .pull-left h2:last-of-type, .pull-left h3:last-child {
+    color: gray;
+}
+
+.remark-slide-content.acknowledgment {
+    background: linear-gradient(120deg, rgb(209, 232, 223) 60%, #009a81 60%);
+}
+.acknowledgment .pull-right.biostat-logo img {
+    width: 50%;
+    padding-right: 20px;
+}
+.acknowledgment .pull-right.biostat-logo {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: right;
+}
+*/
+
+
+/*
+.inverse .remark-code, .inverse a > code {
+    color: white;
+}
+.inverse h2 a{
+    color: #f3f3f3;
+}
+.linear-model, .methods{
+    background: linear-gradient(90deg, rgb(209, 232, 223) 25%, white 25%);
+}
+.reference {
+    background: linear-gradient(90deg, rgb(209, 232, 223) 35%, white 35%);
+}
+
+.methods .right-column h3 {
+    color: black;
+    line-height: 16px;
+    font-size: 165%;
+    padding-left: 30px;
+}
+.methods .left-column h3 {
+    color: #343434;
+    line-height: 10px;
+    display: list-item;
+    list-style-type: circle;
+    list-style-position: inside;
+}
+.data .pull-left {
+    width: 40%;
+}
+.data .pull-right{
+    width: 55%;
+}
+.data p {
+    margin-top: 0;
+}
+
+.data .pull-right h2 {
+    margin-top: 0;
+}
+
+.acknowledgment .pull-left {
+    display: flex;
+    flex-direction: column;
+}
+.acknowledgment .pull-left .card {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 200px 1fr;
+}
+.card-text {
+    text-align: left;
+    padding-left: 20px;
+    line-height: 10px;
+    align-self: end;
+}
+.card-text h2{
+    color: #565656;
+}
+.acknowledgement .pull-left h2:last-of-type, .pull-left h3:last-child {
+    color: gray;
+}
+
+.remark-slide-content.acknowledgment {
+    background: linear-gradient(120deg, rgb(209, 232, 223) 60%, #009a81 60%);
+}
+.pull-right.biostat-logo {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: right;
+}
+.acknowledgment .pull-right.biostat-logo img {
+    width: 50%;
+    padding-right: 20px;
+}
+
+.reference .left-column {
+    width: 30%;
+}
+
+.reference .right-column {
+    width: 65%;
+}
+.reference .left-column img {
+    width: 85%;
+}
+
+.reference .left-column p:first-child {
+    margin-top: 40px;
+}
+
+
+.remark-slide-content.acknowledgment {
+    background: linear-gradient(120deg, rgb(209, 232, 223) 60%, #009a81 60%);
+}
+.pull-right.biostat-logo {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: right;
+}
+.acknowledgment .pull-right.biostat-logo img {
+    width: 50%;
+    padding-right: 20px;
+}
+
+@media print {
+    .inverse {
+      -webkit-filter: drop-shadow(0 0 20px #333);
+      text-shadow: 0 0 20px #333;
+    }
+    .remark-container.remark-presenter-mode .remark-slide-notes {
+    margin-left:700px;
+   }
+  }
+*/

@@ -1,0 +1,12 @@
+name: pcr-vs-pls
+title: pcr-vs-pls
+username:
+account: therimalaya
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1259726
+bundleId: 2452913
+url: https://therimalaya.shinyapps.io/pcr-vs-pls/
+when: 1569773892.16316
+asMultiple: FALSE
+asStatic: FALSE

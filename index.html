@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Exploration of Multi-Response Multivariate Methods</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Raju Rimal" />
+    <!--
+    <link rel="stylesheet" href="_style/default.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="_style/fonts.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="_style/custom.css" type="text/css" media="all" />
+    -->
+    <link rel="stylesheet" href="_style/default.css" type="text/css" />
+    <link rel="stylesheet" href="_style/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="_style/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: title, center, middle, inverse
+
+&lt;img src="_images/animated/NMBUwhite.svg" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+class: title, left, middle, inverse
+
+.flex-column[
+.title-text[
+# Exploration of Multi-Response Multivariate Methods
+## Raju Rimal
+### 04 October, 2019
+]
+
+.title-footer[
+.pull-left[
+&lt;img src="_images/NMBUwhite.svg" width="75%" style="display: block; margin: auto auto auto 0;" /&gt;
+].pull-right[
+#### Supervisors: Solve Sæbø and Trygve Almøy
+[https://therimalaya.github.io/Dissertation](https://therimalaya.github.io/Dissertation)
+]
+]
+]
+
+
+---
+class: title, middle, left, inverse
+
+# Linear Regression Model
+## Relevant Space and Relevant Components
+
+---
+class: top, left
+
+# Linear Regression Model
+.pull-left[
+
+- Regression coefficients `\(\beta\)` controls the relationship between the predictor `\((\mathbf{x})\)` and response `\((\mathbf{y})\)`
+- Not all variation in the `\(\mathbf{y}\)` is explained by `\(\mathbf{x}\)`
+- The error captures the rest that is left by the model
+- Different prediction and estimation methods uses different model to figure out these `\(\beta\)` close to the truth in order to achieve better prediction and stable estimation
+
+
+].pull-right.with-figure[
+
+&lt;img src="_images/animated/relevant-space.svg" width="100%" style="padding-bottom: 12px;" style="display: block; margin: auto;" /&gt;
+
+.caption[ Linear Regression between `\\(\mathbf{x}\\)` and `\\(\mathbf{y}\\)` ]
+
+`$$\mathbf{y} = \mu_y + \beta^t(\mathbf{x} - \mu_x) + \varepsilon, \; \; \varepsilon \sim \mathsf{N}(0, \sigma^2)$$`
+
+The regression coefficient is the covariance between `\(\mathbf{x}\)` and `\(\mathbf{y}\)` scaled by the variance of `\(\mathbf{x}\)`, i.e.
+`$$\beta=\Sigma_{xx}^{-1}\sigma_{xy}$$`
+
+]
+
+---
+class: top, left
+# Relevant Space and Relevant Components
+
+.pull-left[
+
+- Only a subspace (relevant space) of predictor space are relevant for explaining variation in `\(\mathbf{y}\)` 
+- A subset of latent components that spans this space are the _relevant components_
+- Methods like principal component regression (PCR) and partial least squares (PLS) are based on this concept
+- Leveraging the idea, Sæbø, Almøy, and Helland (2015) developed a simulation tool called `simrel`
+- In the second paper, using the tool, we performed a simulation comparison on various methods including BayesPLS, PLS and Envelopes
+
+].pull-right.with-figure[
+
+
+&lt;svg id="rel-space" width="500" height="253" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" &gt;
+        &lt;defs&gt;
+            &lt;style&gt;
+                .outer {
+                    fill: steelblue;
+                    fill-opacity: 0.1;
+                    stroke: #555;
+                    stroke-width: 1;
+                }
+        
+                .inner {
+                    fill: steelblue;
+                    fill-opacity: 0.1;
+                    stroke: #555;
+                    stroke-width: 1;
+                }
+            &lt;/style&gt;
+        &lt;/defs&gt;
+        &lt;text 
+            font-family="sans-serif"
+            font-size="small"
+            y="95%"
+            x="10px"&gt;
+            Response(Y)
+        &lt;/text&gt;
+        &lt;text 
+            font-family="sans-serif"
+            font-size="small"
+            y="95%"
+            x="55%"&gt;
+            Predictor(X)
+        &lt;/text&gt;
+        &lt;path class="outer"
+                id="rect4518"
+                d="m 124.7122,1.6152945 c 124.24738,0 248.49474,0 372.74214,0 0,83.2150685 0,166.4301355 0,249.6452055 -124.2474,0 -248.49476,0 -372.74214,0 0,-83.21507 0,-166.430137 0,-249.6452055 z" /&gt;
+        &lt;path class="inner" id="rect4518"
+            d="m 124.7122,1.6152945 c 124.24738,0 248.49474,0 372.74214,0 0,83.2150685 0,166.4301355 0,249.6452055 -124.2474,0 -248.49476,0 -372.74214,0 0,-83.21507 0,-166.430137 0,-249.6452055 z"&gt;
+            &lt;animate attributeName="d"
+                to="M 170.53456,37.92737 C 265.28599,217.11511 385.95431,-31.208126 444.71542,38.791937 477.38588,77.711169 458.33759,157.11893 418.77822,189.0113 355.87086,239.72663 233.72898,235.76893 176.58657,178.63639 143.3876,145.44318 170.53456,37.92737 170.53456,37.92737 Z"
+                dur="3s" fill="freeze"  begin="mouseover"/&gt;
+            &lt;animate attributeName="fill" from="steelblue" to="#009a81" dur="3s" fill="freeze"  begin="mouseover"/&gt;
+            &lt;animate attributeName="fill-opacity" from="0" to="0.8" dur="3s" fill="freeze"  begin="mouseover"/&gt;
+        &lt;/path&gt;
+        &lt;path class="outer" id="rect4529"
+            d="m 0.9448819,0.9448819 c 34.5766391,0 69.1532801,0 103.7299181,0 0,83.6620351 0,167.3240381 0,250.9860681 -34.576638,0 -69.153279,0 -103.7299181,0 0,-83.66203 0,-167.324033 0,-250.9860681 z" /&gt;
+        &lt;path class="inner" id="rect4529"
+            d="m 0.9448819,0.9448819 c 34.5766391,0 69.1532801,0 103.7299181,0 0,83.6620351 0,167.3240381 0,250.9860681 -34.576638,0 -69.153279,0 -103.7299181,0 0,-83.66203 0,-167.324033 0,-250.9860681 z"&gt;
+            &lt;animate attributeName="d"
+                to="M 32.934075,128.03709 C -16.763878,53.707012 77.873043,15.642633 77.873043,15.642633 c 0,0 -66.362608,28.167912 -10.374871,85.852647 55.987738,57.6847 -19.057092,125.21568 -44.074398,119.31107 0,0 59.20825,-18.43918 9.510301,-92.76926 z"
+                dur="3s" fill="freeze"  begin="mouseover"/&gt;
+            &lt;animate attributeName="fill" from="steelblue" to="#009a81" dur="3s" fill="freeze"  begin="mouseover"/&gt;
+            &lt;animate attributeName="fill-opacity" from="0" to="0.8" dur="3s" fill="freeze"  begin="mouseover"/&gt;
+        &lt;/path&gt;
+&lt;/svg&gt;
+
+.caption[ Linear Regression between `\\(\mathbf{x}\\)` and `\\(\mathbf{y}\\)` with relevant spaces within them. ]
+
+]
+
+---
+class: top, left
+
+# Simulation using from __simrel__ and a comparison
+
+.pull-left[
+## Simulation
+
+1. Fix simulation parameters
+2. Create latent covariance matrix
+3. Create a Rotation matrix
+4. Create covariance of data from 2. and 3.
+5. Sample data from Multivariate Normal using 4.
+
+
+].pull-right[
+
+]
+
+---
+class: top, acknowledgment, title
+
+# Acknowledgment
+
+.pull-left[
+## Supervisors
+.card[ &lt;!-- Solve --&gt;
+&lt;img src="_images/solve.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+.card-text[
+## Solve Sæbø
+### NMBU
+]
+].card[ &lt;!-- Trygve --&gt;
+&lt;img src="_images/trygve.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+.card-text[
+## Trygve Almøy
+### NMBU
+]
+]
+].pull-right[
+.group-photos[
+
+]
+.biostat-logo[
+![](_images/BioStatistics.svg)
+]
+]
+
+---
+class: references, top, left
+
+# References
+
+Sæbø, S., T. Almøy, and I. S. Helland (2015). "simrel - A
+versatile tool for linear model data simulation based on the
+concept of a relevant subspace and relevant predictors". In:
+_Chemometrics and Intelligent Laboratory Systems_.
+
+---
+class: title
+
+background-image: url(_images/animated/Thank-You.svg)
+background-color: #009a81
+background-size: cover
+background-position: center
+background-repeat: no-repeat
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:10",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%|%total%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+<script src="libs/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="_js/script.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+  </body>
+</html>

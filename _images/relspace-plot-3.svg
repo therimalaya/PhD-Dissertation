@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 612.00 360.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    line, polyline, polygon, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<rect x='6.12' y='3.60' width='599.76' height='352.80' style='stroke-width: 0.75; fill: #F5F5F5;' />
+<text x='48.48' y='82.78' style='font-size: 16.00px; font-family: Courier;' textLength='115.20px' lengthAdjust='spacingAndGlyphs'>Response (Y)</text>
+<rect x='56.10' y='91.80' width='99.96' height='205.80' style='stroke-width: 0.75; stroke: #000000; stroke-opacity: 0.50; fill: #4682B4; fill-opacity: 0.50;' />
+<text x='290.76' y='82.78' style='font-size: 16.00px; font-family: Courier;' textLength='230.40px' lengthAdjust='spacingAndGlyphs'>Predictor Components (Z)</text>
+<rect x='256.02' y='91.80' width='299.88' height='205.80' style='stroke-width: 0.75; stroke: #000000; stroke-opacity: 0.50; fill: #4682B4; fill-opacity: 0.50;' />
+<rect x='301.00' y='91.80' width='89.96' height='205.80' style='stroke-width: 0.75; stroke: #000000; stroke-opacity: 0.80; fill: #2E8B57; fill-opacity: 0.80;' />
+<line x1='248.02' y1='194.70' x2='196.04' y2='194.70' style='stroke-width: 33.75; stroke: #666666; stroke-linecap: butt; stroke-linejoin: miter;' />
+<polyline points='219.74,181.02 196.04,194.70 219.74,208.38 ' style='stroke-width: 33.75; stroke: #666666; stroke-linecap: butt; stroke-linejoin: miter;' />
+<line x1='246.02' y1='194.70' x2='196.04' y2='194.70' style='stroke-width: 30.00; stroke: #999999; stroke-linecap: butt; stroke-linejoin: miter;' />
+<polyline points='217.87,182.10 196.04,194.70 217.87,207.30 ' style='stroke-width: 30.00; stroke: #999999; stroke-linecap: butt; stroke-linejoin: miter;' />
+<text x='56.10' y='30.90' style='font-size: 18.00px; font-weight: bold; font-family: Courier;' textLength='248.40px' lengthAdjust='spacingAndGlyphs'>Linear Regression Model</text>
+<text x='56.10' y='52.21' style='font-size: 16.00px; font-family: Courier;' textLength='422.40px' lengthAdjust='spacingAndGlyphs'>Relevant and Irrelevant Predictor Components</text>
+</svg>

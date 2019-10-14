@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Animation</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+</head>
+
+<body>
+    <div id="myApp">
+        <h1>{{ title }}</h1>
+        <svg id="rel-space" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" id="svg4705" width="498.39923"
+            height="252.87584">
+            <defs id="defs4709">
+                <style>
+                    svg#rel-space .outer {
+                        fill: steelblue;
+                        fill-opacity: .5;
+                        stroke: #555;
+                        stroke-width: 1;
+                    }
+
+                    svg#rel-space .inner {
+                        fill: steelblue;
+                        fill-opacity: .5;
+                        stroke: #555;
+                        stroke-width: 1;
+                    }
+                </style>
+            </defs>
+            <path class="outer" sodipodi:nodetypes="ccccc" inkscape:connector-curvature="0" id="rect4518"
+                d="m 124.7122,1.6152945 c 124.24738,0 248.49474,0 372.74214,0 0,83.2150685 0,166.4301355 0,249.6452055 -124.2474,0 -248.49476,0 -372.74214,0 0,-83.21507 0,-166.430137 0,-249.6452055 z" />
+            <path class="inner" sodipodi:nodetypes="ccccc" inkscape:connector-curvature="0" id="rect4518"
+                d="m 124.7122,1.6152945 c 124.24738,0 248.49474,0 372.74214,0 0,83.2150685 0,166.4301355 0,249.6452055 -124.2474,0 -248.49476,0 -372.74214,0 0,-83.21507 0,-166.430137 0,-249.6452055 z">
+                <animate attributeType="XML" attributeName="d"
+                    to="M 170.53456,37.92737 C 265.28599,217.11511 385.95431,-31.208126 444.71542,38.791937 477.38588,77.711169 458.33759,157.11893 418.77822,189.0113 355.87086,239.72663 233.72898,235.76893 176.58657,178.63639 143.3876,145.44318 170.53456,37.92737 170.53456,37.92737 Z"
+                    dur="3s" fill="freeze" />
+                <animate attributeName="fill" from="steelblue" to="forestgreen" dur="3s" fill="freeze" />
+            </path>
+            <path class="outer" sodipodi:nodetypes="ccccc" inkscape:connector-curvature="0" id="rect4529"
+                d="m 0.9448819,0.9448819 c 34.5766391,0 69.1532801,0 103.7299181,0 0,83.6620351 0,167.3240381 0,250.9860681 -34.576638,0 -69.153279,0 -103.7299181,0 0,-83.66203 0,-167.324033 0,-250.9860681 z" />
+            <path class="inner" sodipodi:nodetypes="ccccc" inkscape:connector-curvature="0" id="rect4529"
+                d="m 0.9448819,0.9448819 c 34.5766391,0 69.1532801,0 103.7299181,0 0,83.6620351 0,167.3240381 0,250.9860681 -34.576638,0 -69.153279,0 -103.7299181,0 0,-83.66203 0,-167.324033 0,-250.9860681 z">
+                <animate attributeType="XML" attributeName="d"
+                    to="M 32.934075,128.03709 C -16.763878,53.707012 77.873043,15.642633 77.873043,15.642633 c 0,0 -66.362608,28.167912 -10.374871,85.852647 55.987738,57.6847 -19.057092,125.21568 -44.074398,119.31107 0,0 59.20825,-18.43918 9.510301,-92.76926 z"
+                    dur="3s" fill="freeze" />
+                <animate attributeName="fill" from="steelblue" to="forestgreen" dur="3s" fill="freeze" />
+            </path>
+            <g id="labels">
+                <text x="200px" y="150px" style="fill:#555">{{ relspace_label }}</text>
+            </g>
+        </svg>
+    </div>
+
+    <script src="test.js"></script>
+</body>
+
+</html>

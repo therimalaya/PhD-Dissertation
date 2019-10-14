@@ -1,0 +1,54 @@
+<svg id="rel-space" width="500" height="253" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+        <defs>
+            <style>
+                .outer {
+                    fill: steelblue;
+                    fill-opacity: 0.1;
+                    stroke: #555;
+                    stroke-width: 1;
+                }
+        
+                .inner {
+                    fill: steelblue;
+                    fill-opacity: 0.1;
+                    stroke: #555;
+                    stroke-width: 1;
+                }
+            </style>
+        </defs>
+        <text 
+            font-family="sans-serif"
+            font-size="small"
+            y="95%"
+            x="10px">
+            Response(Y)
+        </text>
+        <text 
+            font-family="sans-serif"
+            font-size="small"
+            y="95%"
+            x="55%">
+            Predictor(X)
+        </text>
+        <path class="outer"
+                id="rect4518"
+                d="m 124.7122,1.6152945 c 124.24738,0 248.49474,0 372.74214,0 0,83.2150685 0,166.4301355 0,249.6452055 -124.2474,0 -248.49476,0 -372.74214,0 0,-83.21507 0,-166.430137 0,-249.6452055 z" />
+        <path class="inner" id="rect4518"
+            d="m 124.7122,1.6152945 c 124.24738,0 248.49474,0 372.74214,0 0,83.2150685 0,166.4301355 0,249.6452055 -124.2474,0 -248.49476,0 -372.74214,0 0,-83.21507 0,-166.430137 0,-249.6452055 z">
+            <animate attributeName="d"
+                to="M 170.53456,37.92737 C 265.28599,217.11511 385.95431,-31.208126 444.71542,38.791937 477.38588,77.711169 458.33759,157.11893 418.77822,189.0113 355.87086,239.72663 233.72898,235.76893 176.58657,178.63639 143.3876,145.44318 170.53456,37.92737 170.53456,37.92737 Z"
+                dur="3s" fill="freeze"  begin="mouseover"/>
+            <animate attributeName="fill" from="steelblue" to="#009a81" dur="3s" fill="freeze"  begin="mouseover"/>
+            <animate attributeName="fill-opacity" from="0" to="0.8" dur="3s" fill="freeze"  begin="mouseover"/>
+        </path>
+        <path class="outer" id="rect4529"
+            d="m 0.9448819,0.9448819 c 34.5766391,0 69.1532801,0 103.7299181,0 0,83.6620351 0,167.3240381 0,250.9860681 -34.576638,0 -69.153279,0 -103.7299181,0 0,-83.66203 0,-167.324033 0,-250.9860681 z" />
+        <path class="inner" id="rect4529"
+            d="m 0.9448819,0.9448819 c 34.5766391,0 69.1532801,0 103.7299181,0 0,83.6620351 0,167.3240381 0,250.9860681 -34.576638,0 -69.153279,0 -103.7299181,0 0,-83.66203 0,-167.324033 0,-250.9860681 z">
+            <animate attributeName="d"
+                to="M 32.934075,128.03709 C -16.763878,53.707012 77.873043,15.642633 77.873043,15.642633 c 0,0 -66.362608,28.167912 -10.374871,85.852647 55.987738,57.6847 -19.057092,125.21568 -44.074398,119.31107 0,0 59.20825,-18.43918 9.510301,-92.76926 z"
+                dur="3s" fill="freeze"  begin="mouseover"/>
+            <animate attributeName="fill" from="steelblue" to="#009a81" dur="3s" fill="freeze"  begin="mouseover"/>
+            <animate attributeName="fill-opacity" from="0" to="0.8" dur="3s" fill="freeze"  begin="mouseover"/>
+        </path>
+</svg>
